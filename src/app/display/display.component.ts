@@ -1,4 +1,5 @@
 import { Component, Input } from '@angular/core';
+import { User } from '../user';
 
 @Component({
   selector: 'app-display',
@@ -6,6 +7,5 @@ import { Component, Input } from '@angular/core';
   styleUrls: ['./display.component.scss']
 })
 export class DisplayComponent {
-  @Input() usernamee ="";
-  @Input() emailid ="";
+  @Input() user:User;
 }

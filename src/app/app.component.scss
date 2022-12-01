@@ -4,7 +4,7 @@ body{
 .layout{
   background-color: #009EFF;
 margin: 0;
-height: 70vh;
+height: 100vh;
 align-content: center;
 padding:100px 0 100px 0;
 
@@ -24,7 +24,7 @@ padding:100px 0 100px 0;
 .layout h1{
   display: block;
   margin: 20px auto 20px auto;
-  width: 15%;
+  width: 20%;
 }
 .form input{
   display: inline-block;
@@ -45,12 +45,40 @@ padding:100px 0 100px 0;
 .form input[type=submit]{
   background-color: #2146C7;
   height: 20px;
-  width: 90%;
-  margin: 20px;
-  padding: 30px;
+  width: 96%;
+  margin: 20px 5px;
+  padding: 20px;
   color: #ffffff;
   text-align: center;
   justify-content:center;
   display: inline-block;
+  border-radius: 4%;
+}
+.form input[type=radio]{
+  display: inline-block;
+  margin:10px;
+  padding: 10px;
+  width: 10%;
+  background-color: rgb(232, 223, 223);
   border-radius: 5%;
+  justify-content: center;
+  text-align: center;
+}
+.form select{
+  display: inline-block;
+  margin: 20px 20px 20px 20px;
+  padding: 10px;
+  width: 90%;
+}
+input.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+select.ng-invalid.ng-touched {
+  border: 1px solid red;
+}
+small{
+  margin-left: 25%;
+  padding: 0%;
+  display: flex;
+  text-align: center;
 }

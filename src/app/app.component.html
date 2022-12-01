@@ -2,14 +2,31 @@
       <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/4.7.0/css/font-awesome.min.css">
     </head>
     <div class="layout">
-      <form class="form">
+      <form class="form" #userform="ngForm" (ngSubmit)="onButtonClick(userform)">
         <img src="../assets/logo.jpeg" alt="logo" class="logo">
         <h1>Login</h1>
         <label for="name"><i class="fa fa-user-circle-o" style="font-size:18px"></i></label>
-        <input type="text" id="name" name="name" [(ngModel)]="user">
+        <input type="text" id="name" name="name" ngModel required #name ="ngModel">
+        <small style="color: red;" *ngIf="!name.valid && name.touched">This field is mandatory</small>
         <label for="email"><i class="fa fa-envelope" style="font-size:18px"></i></label>
-        <input type="text" id="email" name="email" [(ngModel)]="em">
-        <input type="submit">
-        <app-display [usernamee]="user" [emailid]="em" ></app-display>
+        <input type="text" id="email" name="email" ngModel required email #email ="ngModel">
+        <div *ngIf="!email?.valid && (email?.dirty || email?.touched)"  style="color: red;">
+          <small *ngIf="email.errors?.['required']">Email is required</small>
+          <small *ngIf="email.errors?.['email']">Invalid email address</small>
+        </div>
+        <label for="html">Male</label>
+        <input type="radio" id="gender" name="gender" value="male" ngModel required>
+        <label for="css">Female</label>
+        <input type="radio" id="gender" name="gender" value="female" ngModel required>
+        <select name="country" id="country" ngModel required #country ="ngModel">
+        <option value="India">India</option>
+        <option value="USA">USA</option>
+        <option value="Russia">Russia</option>
+        <option value="Japan">Japan</option>
+        </select>
+        <input [disabled]="!userform.valid" type="submit">
       </form>
     </div>
+<div>
+  <app-display [user]="user"> </app-display>
+</div>
